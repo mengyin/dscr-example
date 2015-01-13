@@ -1,6 +1,5 @@
 library(dscr)
 
-source("datamaker.R")
 source("scenarios.R")
 source("methods.R")
 source("score.R")
