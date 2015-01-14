@@ -1,7 +1,7 @@
 # dscr-template
 a template repository for a dynamic statistical comparison
 
-# How to use this to set up a new DSC
+## How to use this to set up a new DSC
 
 1. Copy this repo. For example, suppose you want to call your repo `dscr-example` and host it on github. You could do the following:
     * create a new repo named `dscr-example` on your github account.
@@ -14,4 +14,8 @@ a template repository for a dynamic statistical comparison
 5. edit the file `methods.R` to define your methods
 6. edit the file `score.R` to define your scoring function
 7. replace the text in this `README.md` file with a description of the DSC. Include background, and definitions of the structure of the objects `meta`, `input`, and `output` that is used by your DSC.
-8. Run your DSC by running `source("run_dsc.R")` in R. [Make sure you have installed the `dscr` package first!]
+8. Run your DSC by running `source("run_dsc.R")` in R. [Make sure you have installed the `dscr` package first from https://github.com/stephens999/dscr]
+
+## An example
+
+See https://github.com/stephens999/dscr-example for an example of a repo set up using this template 
