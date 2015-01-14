@@ -4,7 +4,7 @@ a template repository for a dynamic statistical comparison
 # How to use this to set up a new DSC
 
 1. Copy this repo. For example, suppose you want to call your repo `dscr-example` and host it on github. You could do the following:
-    * create a new repo named dscr-example on your github account.
+    * create a new repo named `dscr-example` on your github account.
     * clone this repo to your locaal computer, under the directory `dscr-example` say, using `git clone https://github.com/stephens999/dscr-template.git dscr-example`
     * set up your local repo to push to your github repo: `cd dscr-example` `git remote rm origin` `git remote add origin https://github.com/yourgithubid/dscr-example.git`
     * Push to your github repo using `git push -u origin master`
