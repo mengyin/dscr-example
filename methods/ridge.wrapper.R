@@ -1,11 +1,12 @@
-#define your methods in .R files like this one in the methods subdirectory
-#each method should take arguments input and args, like the example
-#the output should be a list of the appropriate "output" format (defined in the README)
-
+# Fit ridge regression
+# Using R package "glmnet"
+# input: x - predictors of training data 
+#        y - responses of training data
 ridge.wrapper = function(input,args){
-  library(glmnet)
-  
+  library(glmnet) 
   fit = cv.glmnet(input$x,input$y, intercept=FALSE, alpha=0)
   betahat = coef(fit, s="lambda.min")[-1]
+  
+  # return estimate of beta
   return(list(betahat=betahat))
 }

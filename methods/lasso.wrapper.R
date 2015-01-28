@@ -1,7 +1,7 @@
-#define your methods in .R files like this one in the methods subdirectory
-#each method should take arguments input and args, like the example
-#the output should be a list of the appropriate "output" format (defined in the README)
-
+# Fit lasso regression
+# Using R package "glmnet"
+# input: x - predictors of training data 
+#        y - responses of training data
 lasso.wrapper = function(input,args){
   library(glmnet)
   fit = cv.glmnet(input$x,input$y, intercept=FALSE, alpha=1)

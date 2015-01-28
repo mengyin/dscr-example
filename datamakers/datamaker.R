@@ -1,7 +1,11 @@
-#define your datamaker functions in .R files in the datamaker subdirectory
-#each datamaker should take input seed (integer) and args (list), and output a list with names elements meta and input
-#the format of the meta and input elements should be defined in the README
-#
+# Simulate data in Zou & Hastie (2005)
+# predictor: X~multivariate normal
+# response: Y~X*beta+sigma*eps, where eps is standard normal noise
+# args: Cov - Covariance matrix of X
+#       beta - vector
+#       sigma - scalar
+#       nsamp.train - sample size of training set
+#       nsamp.test - sample size of testing set
 datamaker = function(seed,args){
   library(MASS)
   set.seed(seed)
@@ -12,8 +16,6 @@ datamaker = function(seed,args){
   beta = args$beta
   Cov = args$Cov
   
-  #Cov = 0.5^abs(outer(1:length(beta), 1:length(beta), FUN='-'))
-  
   x.train = mvrnorm(nsamp.train, mu=rep(0,length(beta)), Sigma=Cov)
   x.test = mvrnorm(nsamp.test, mu=rep(0,length(beta)), Sigma=Cov)
   eps.train = rnorm(nsamp.train, 0, 1)
@@ -21,11 +23,12 @@ datamaker = function(seed,args){
   y.train = x.train%*%beta+sigma*eps.train
   y.test = x.test%*%beta+sigma*eps.test
   
+  # Use test data as meta data
   meta = list(x=x.test, y=y.test, beta=beta, sigma=sigma)
+  
+  # Use training data as input data
   input = list(x=x.train, y=y.train)
   
   data = list(meta=meta,input=input)
-  
   return(data)
-  
 }

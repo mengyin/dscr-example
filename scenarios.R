@@ -1,7 +1,7 @@
 sourceDir("datamakers")
 scenarios=list()
 
-#Now, for each scenario create an element of scenarios of the following form
+# 4 simulation scenarios in Zou & Hastie (2005)
 scenarios[[1]]=list(name="scenario(a)",fn=datamaker,
                     args=list(beta=c(3,1.5,0,0,2,0,0,0),
                               sigma=3,
